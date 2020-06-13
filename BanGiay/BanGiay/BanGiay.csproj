@@ -1,0 +1,460 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{16BBD16A-06BF-4300-9B55-13EE80A6BEA6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BanGiay</RootNamespace>
+    <AssemblyName>BanGiay</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\css1\accordion.css" />
+    <Content Include="Content\css\css1\animate.css" />
+    <Content Include="Content\css\css1\bootstrap.min.css" />
+    <Content Include="Content\css\css1\font-awesome.min.css" />
+    <Content Include="Content\css\css1\fresco.css" />
+    <Content Include="Content\css\css1\fresco\skins\fresco\sprite.png" />
+    <Content Include="Content\css\css1\fresco\skins\fresco\sprite.svg" />
+    <Content Include="Content\css\css1\owl.carousel.min.css" />
+    <Content Include="Content\css\css1\style.css" />
+    <Content Include="Content\css\css1\themify-icons.css" />
+    <Content Include="Content\css\elegant-icons.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\jquery-ui.min.css" />
+    <Content Include="Content\css\nice-select.css" />
+    <Content Include="Content\css\owl.carousel.min.css" />
+    <Content Include="Content\css\slicknav.min.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\themify-icons.css" />
+    <Content Include="Content\fonts\ElegantIcons.svg" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\fonts1\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\fonts1\themify.svg" />
+    <Content Include="Content\fonts\themify.svg" />
+    <Content Include="Content\img\AllProduct\adidas Originals Womens Superstar Sneaker.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Adidas Alphabounce Beyond.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Adidas NMD_R1_Shoes_White.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Adidas Originals Superstar Sneaker.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Adidas StanSmith Flower.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Adidas StanSmith Green.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Adidas StanSmith White.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Adidas Superstar Original Vàng Trắng.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Adidas Superstar Original Đỏ Trắng.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Adidas ULTRABOOST 19 x TOY STORY.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Alexander McQueen Mcq Classic.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Converse 1970s Trắng Cổ Cao.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Converse 1970s Vàng Cổ Cao.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Converse 1970s Đen Cổ Thấp.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Converse Chuck Taylor All Star VLTG - Back to Earth.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Converse Chuck Taylor Xám Cổ Cao.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Converse Chuck Taylor Đen Cổ Cao.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Converse Chuck Taylor Đen Cổ Thấp.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Converse Peaceminusone 1970s.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Converse x CDG 1970s Đen Cổ Cao.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Converse x CDG 1970s Đen Cổ Cao.png" />
+    <Content Include="Content\img\AllProduct\Giày Converse x CDG 1970s Đen Cổ Thấp.jpg" />
+    <Content Include="Content\img\AllProduct\Giày jordan-react-havoc-se-running.jpg" />
+    <Content Include="Content\img\AllProduct\Giày joyride-run-flyknit-running.jpg" />
+    <Content Include="Content\img\AllProduct\Giày killshot-og-sp.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Nike air-force-1-react.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Nike air-jordan-1-mid.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Nike air-max-90.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Nike air-vapormax-flyknit-3.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Nike BW1195-01.jpg" />
+    <Content Include="Content\img\AllProduct\Giày react-infinity-run-flyknit-running.jpg" />
+    <Content Include="Content\img\AllProduct\Giày React-phantom-run-flyknit-2-running.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Thể Thao Nike Air Force 1.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Thể Thao Nike Air Max 97 Trắng.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Thể Thao Nike Air Max 97 Xám.jpg" />
+    <Content Include="Content\img\AllProduct\Giày thể Thao Nike Killshot -og-sp.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Vans Old Skool Baby Blue 1.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Vans Old Skool Baby Blue.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Vans Old Skool Black White.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Vans Old Skool Caramel.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Vans Old Skool Flamingo.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Vans Old Skool Green.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Vans Old Skool Maroon.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Vans Old Skool Rose.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Vans Old Skool Violet.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Vans Old Skool White.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Vans Sk8 Hi Black White.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Vans Slip On Checkerboard.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Vans Style 36 Marshmallow Dress Blue.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Vans style 36 Pink.jpg" />
+    <Content Include="Content\img\AllProduct\Giày Vans UA Authentic Warped Floral.jpg" />
+    <Content Include="Content\img\AllProduct\Giày X_PLR_Shoes_Pink.jpg" />
+    <Content Include="Content\img\AllProduct\Vans\Giày Vans Old Skool Baby Blue 1.jpg" />
+    <Content Include="Content\img\AllProduct\Vans\Giày Vans Old Skool Baby Blue.jpg" />
+    <Content Include="Content\img\AllProduct\Vans\Giày Vans Old Skool Black White.jpg" />
+    <Content Include="Content\img\AllProduct\Vans\Giày Vans Old Skool Caramel.jpg" />
+    <Content Include="Content\img\AllProduct\Vans\Giày Vans Old Skool Flamingo.jpg" />
+    <Content Include="Content\img\AllProduct\Vans\Giày Vans Old Skool Green.jpg" />
+    <Content Include="Content\img\AllProduct\Vans\Giày Vans Old Skool Maroon.jpg" />
+    <Content Include="Content\img\AllProduct\Vans\Giày Vans Old Skool Rose.jpg" />
+    <Content Include="Content\img\AllProduct\Vans\Giày Vans Old Skool Violet.jpg" />
+    <Content Include="Content\img\AllProduct\Vans\Giày Vans Old Skool White.jpg" />
+    <Content Include="Content\img\AllProduct\Vans\Giày Vans Sk8 Hi Black White.jpg" />
+    <Content Include="Content\img\AllProduct\Vans\Giày Vans Slip On Checkerboard.jpg" />
+    <Content Include="Content\img\AllProduct\Vans\Giày Vans Style 36 Marshmallow Dress Blue.jpg" />
+    <Content Include="Content\img\AllProduct\Vans\Giày Vans style 36 Pink.jpg" />
+    <Content Include="Content\img\AllProduct\Vans\Giày Vans UA Authentic Warped Floral.jpg" />
+    <Content Include="Content\img\banner-1.jpg" />
+    <Content Include="Content\img\banner-2.jpg" />
+    <Content Include="Content\img\banner-3.jpg" />
+    <Content Include="Content\img\cart-page\EE6198-01-600x600.png" />
+    <Content Include="Content\img\cart-page\EE6200-01-600x600.png" />
+    <Content Include="Content\img\cart-page\NMD_R1_Shoes_White_FU9350_01_standard-600x600.jpg" />
+    <Content Include="Content\img\cart-page\product-1.jpg" />
+    <Content Include="Content\img\cart-page\product-2.jpg" />
+    <Content Include="Content\img\cart-page\product-3.jpg" />
+    <Content Include="Content\img\footer-logo.png" />
+    <Content Include="Content\img\icon-1.png" />
+    <Content Include="Content\img\icon-2.png" />
+    <Content Include="Content\img\icon-3.png" />
+    <Content Include="Content\img\img1\blog-details\1.jpg" />
+    <Content Include="Content\img\img1\blog-details\2.jpg" />
+    <Content Include="Content\img\img1\blog-details\3.jpg" />
+    <Content Include="Content\img\img1\blog-details\4.jpg" />
+    <Content Include="Content\img\img1\blog-details\5.jpg" />
+    <Content Include="Content\img\img1\blog-details\blog-next.jpg" />
+    <Content Include="Content\img\img1\blog-details\blog-prev.jpg" />
+    <Content Include="Content\img\img1\blog-details\thumbnail.jpg" />
+    <Content Include="Content\img\img1\blog-details\user-1.jpg" />
+    <Content Include="Content\img\img1\blog-details\user-2.jpg" />
+    <Content Include="Content\img\img1\blog-details\user-3.jpg" />
+    <Content Include="Content\img\img1\blog\1.jpg" />
+    <Content Include="Content\img\img1\blog\10.jpg" />
+    <Content Include="Content\img\img1\blog\11.jpg" />
+    <Content Include="Content\img\img1\blog\12.jpg" />
+    <Content Include="Content\img\img1\blog\13.jpg" />
+    <Content Include="Content\img\img1\blog\14.jpg" />
+    <Content Include="Content\img\img1\blog\15.jpg" />
+    <Content Include="Content\img\img1\blog\2.jpg" />
+    <Content Include="Content\img\img1\blog\3.jpg" />
+    <Content Include="Content\img\img1\blog\4.jpg" />
+    <Content Include="Content\img\img1\blog\5.jpg" />
+    <Content Include="Content\img\img1\blog\6.jpg" />
+    <Content Include="Content\img\img1\blog\7.jpg" />
+    <Content Include="Content\img\img1\blog\8.jpg" />
+    <Content Include="Content\img\img1\blog\9.jpg" />
+    <Content Include="Content\img\img1\gallery\1.jpg" />
+    <Content Include="Content\img\img1\gallery\10.jpg" />
+    <Content Include="Content\img\img1\gallery\11.jpg" />
+    <Content Include="Content\img\img1\gallery\2.jpg" />
+    <Content Include="Content\img\img1\gallery\3.jpg" />
+    <Content Include="Content\img\img1\gallery\4.jpg" />
+    <Content Include="Content\img\img1\gallery\5.jpg" />
+    <Content Include="Content\img\img1\gallery\6.jpg" />
+    <Content Include="Content\img\img1\gallery\7.jpg" />
+    <Content Include="Content\img\img1\gallery\8.jpg" />
+    <Content Include="Content\img\img1\gallery\9.jpg" />
+    <Content Include="Content\img\img1\gallery\author.jpg" />
+    <Content Include="Content\img\img1\hero\1.jpg" />
+    <Content Include="Content\img\img1\hero\2.jpg" />
+    <Content Include="Content\img\img1\hero\3.jpg" />
+    <Content Include="Content\img\img1\hero\4.jpg" />
+    <Content Include="Content\img\img1\hero\5.jpg" />
+    <Content Include="Content\img\img1\hero\author.jpg" />
+    <Content Include="Content\img\insta-1.jpg" />
+    <Content Include="Content\img\insta-2.jpg" />
+    <Content Include="Content\img\insta-3.jpg" />
+    <Content Include="Content\img\insta-4.jpg" />
+    <Content Include="Content\img\insta-5.jpg" />
+    <Content Include="Content\img\insta-6.jpg" />
+    <Content Include="Content\img\latest-1.jpg" />
+    <Content Include="Content\img\latest-2.jpg" />
+    <Content Include="Content\img\latest-3.jpg" />
+    <Content Include="Content\img\Logo\logo_adidas.jpg" />
+    <Content Include="Content\img\Logo\logo_converse.jpg" />
+    <Content Include="Content\img\Logo\logo_nike.jpg" />
+    <Content Include="Content\img\Logo\logo_vans.jpg" />
+    <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\Logo\THShoes_logo.jpg" />
+    <Content Include="Content\img\Page\anh1.jpg" />
+    <Content Include="Content\img\Page\anh10.jpg" />
+    <Content Include="Content\img\Page\anh11.jpg" />
+    <Content Include="Content\img\Page\anh12.jpg" />
+    <Content Include="Content\img\Page\anh13.jpg" />
+    <Content Include="Content\img\Page\anh14.jpg" />
+    <Content Include="Content\img\Page\anh15.jpg" />
+    <Content Include="Content\img\Page\anh16.jpg" />
+    <Content Include="Content\img\Page\anh17.jpg" />
+    <Content Include="Content\img\Page\anh2.jpg" />
+    <Content Include="Content\img\Page\anh22.jpg" />
+    <Content Include="Content\img\Page\anh23.jpg" />
+    <Content Include="Content\img\Page\anh24.jpg" />
+    <Content Include="Content\img\Page\anh25.jpg" />
+    <Content Include="Content\img\Page\anh3.jpg" />
+    <Content Include="Content\img\Page\anh4.jpg" />
+    <Content Include="Content\img\Page\anh5.jpg" />
+    <Content Include="Content\img\Page\anh6.jpg" />
+    <Content Include="Content\img\Page\anh7.jpg" />
+    <Content Include="Content\img\Page\anh8.jpg" />
+    <Content Include="Content\img\Page\anh9.jpg" />
+    <Content Include="Content\img\product-single\avatar-1.png" />
+    <Content Include="Content\img\product-single\avatar-2.png" />
+    <Content Include="Content\img\product-single\img1.png" />
+    <Content Include="Content\img\AllProduct\Adidas\Adidas.png" />
+    <Content Include="Content\img\AllProduct\Adidas\EE6200-01-600x600.png" />
+    <Content Include="Content\img\AllProduct\Adidas\FV3139-01-600x600.png" />
+    <Content Include="Content\img\AllProduct\Adidas\FV8449-01-600x600.png" />
+    <Content Include="Content\img\AllProduct\Adidas\NMD_R1_Shoes_White_FU9350_01_standard-600x600.jpg" />
+    <Content Include="Content\img\AllProduct\Adidas\react-phantom-run-flyknit-2-running-shoe-LcSGB7.jpg" />
+    <Content Include="Content\img\AllProduct\Adidas\S75104-01-600x600.png" />
+    <Content Include="Content\img\AllProduct\Adidas\X_PLR_Shoes_Pink_BY9880_01_standard-600x600.jpg" />
+    <Content Include="Content\img\AllProduct\Adidas\zz-EG0716-standard-side_lateral_center_view-600x600.jpg" />
+    <Content Include="Content\img\AllProduct\Adidas\zz-EG6495-standard-side_lateral_center_view-600x600.jpg" />
+    <Content Include="Content\img\AllProduct\Adidas\zz-FU6673-01-600x600.jpg" />
+    <Content Include="Content\img\AllProduct\Adidas\zz-M20324-01-600x600.jpg" />
+    <Content Include="Content\img\AllProduct\Converse\0749e236bb5c4ad466f8d69706a92f11.jpg" />
+    <Content Include="Content\img\AllProduct\Converse\1-1.jpg" />
+    <Content Include="Content\img\AllProduct\Converse\5-3-768x768.jpg" />
+    <Content Include="Content\img\AllProduct\Converse\770fa009725a325b8fd6ebb811305746.jpg" />
+    <Content Include="Content\img\AllProduct\Converse\9-13-768x768.jpg" />
+    <Content Include="Content\img\AllProduct\Converse\ba27a95a57bc04f1cdc879130fba23f3.jpg" />
+    <Content Include="Content\img\AllProduct\Converse\converse-1970s-saigonsneaker-36-768x768.jpg" />
+    <Content Include="Content\img\AllProduct\Converse\IMG_1039-1-768x768.jpg" />
+    <Content Include="Content\img\AllProduct\Converse\IMG_2234-1-768x768.jpg" />
+    <Content Include="Content\img\AllProduct\Converse\IMG_2330-768x768.jpg" />
+    <Content Include="Content\img\AllProduct\Converse\Mới Giày Converse Chuck Taylor All Star VLTG - Back to Earth.png" />
+    <Content Include="Content\img\AllProduct\Nike\64d401bacb199f1afaf5499861ce0164.jpg" />
+    <Content Include="Content\img\AllProduct\Nike\95263812_2585608848373317_6517511360127959040_o.jpg" />
+    <Content Include="Content\img\AllProduct\Nike\95656645_2587259898208212_6017659316713029632_o.jpg" />
+    <Content Include="Content\img\AllProduct\Nike\a6c4965cb139610175d0c0539099c266.jpg" />
+    <Content Include="Content\img\AllProduct\Nike\air-force-1-07-shoe-7FdcQX.jpg" />
+    <Content Include="Content\img\AllProduct\Nike\air-force-1-react-shoe-gfv33P.jpg" />
+    <Content Include="Content\img\AllProduct\Nike\air-jordan-1-mid-se-shoe-xnGlQq.jpg" />
+    <Content Include="Content\img\AllProduct\Nike\air-max-90-shoe-pWCc7r.jpg" />
+    <Content Include="Content\img\AllProduct\Nike\air-vapormax-flyknit-3-shoe-xr9cgR.jpg" />
+    <Content Include="Content\img\AllProduct\Nike\BW1195-01.jpg" />
+    <Content Include="Content\img\AllProduct\Nike\cde4252114390cb8a2ce748f630a8c29.jpg" />
+    <Content Include="Content\img\AllProduct\Nike\jordan-react-havoc-se-running-shoe-FLQ4bZ.jpg" />
+    <Content Include="Content\img\AllProduct\Nike\joyride-run-flyknit-running-shoe-sqfqGQ.jpg" />
+    <Content Include="Content\img\AllProduct\Nike\killshot-og-sp-shoe-CBS7n2.jpg" />
+    <Content Include="Content\img\AllProduct\Nike\react-infinity-run-flyknit-running-shoe-ZjGHFz.jpg" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\imagesloaded.pkgd.min.js" />
+    <Content Include="Content\js\jquery-3.3.1.min.js" />
+    <Content Include="Content\js\jquery-ui.min.js" />
+    <Content Include="Content\js\jquery.countdown.min.js" />
+    <Content Include="Content\js\jquery.dd.min.js" />
+    <Content Include="Content\js\jquery.nice-select.min.js" />
+    <Content Include="Content\js\jquery.slicknav.js" />
+    <Content Include="Content\js\jquery.zoom.min.js" />
+    <Content Include="Content\js\js1\bootstrap.min.js" />
+    <Content Include="Content\js\js1\circle-progress.min.js" />
+    <Content Include="Content\js\js1\fresco.min.js" />
+    <Content Include="Content\js\js1\imagesloaded.pkgd.min.js" />
+    <Content Include="Content\js\js1\isotope.pkgd.min.js" />
+    <Content Include="Content\js\js1\jquery.nicescroll.min.js" />
+    <Content Include="Content\js\js1\main.js" />
+    <Content Include="Content\js\js1\owl.carousel.min.js" />
+    <Content Include="Content\js\js1\pana-accordion.js" />
+    <Content Include="Content\js\js1\vendor\jquery-3.2.1.min.js" />
+    <Content Include="Content\js\main.js" />
+    <Content Include="Content\js\owl.carousel.min.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Controllers\HomePageController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountCartShop.cs" />
+    <Compile Include="Models\AccountShop.cs" />
+    <Compile Include="Models\BrandShoes.cs" />
+    <Compile Include="Models\Categorieshop.cs" />
+    <Compile Include="Models\DeltailBillShop.cs" />
+    <Compile Include="Models\DeltailCartShop.cs" />
+    <Compile Include="Models\ElecBillShop.cs" />
+    <Compile Include="Models\MyWebShop.cs" />
+    <Compile Include="Models\PhanQuyenShop.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ScopeOfUserShop.cs" />
+    <Compile Include="Models\ShopShoesDB.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Content\fonts\ElegantIcons.eot" />
+    <Content Include="Content\fonts\ElegantIcons.ttf" />
+    <Content Include="Content\fonts\ElegantIcons.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\themify.eot" />
+    <Content Include="Content\fonts\themify.ttf" />
+    <Content Include="Content\fonts\themify.woff" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Content\img\AllProduct\Converse\.DS_Store" />
+    <Content Include="Content\img\AllProduct\Converse\Thumbs.db" />
+    <Content Include="Content\img\AllProduct\Nike\.DS_Store" />
+    <Content Include="Content\fonts\fonts1\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fonts1\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fonts1\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fonts1\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\fonts1\FontAwesome.otf" />
+    <Content Include="Content\fonts\fonts1\themify.eot" />
+    <Content Include="Content\fonts\fonts1\themify.ttf" />
+    <Content Include="Content\fonts\fonts1\themify.woff" />
+    <None Include="packages.config" />
+    <Content Include="Views\Share\Client_LayoutPage.cshtml" />
+    <Content Include="Views\HomePage\Index.cshtml" />
+    <Content Include="Views\HomePage\Product.cshtml" />
+    <Content Include="Views\HomePage\Shop.cshtml" />
+    <Content Include="Views\HomePage\Login.cshtml" />
+    <Content Include="Views\HomePage\Contact.cshtml" />
+    <Content Include="Views\HomePage\Checkout.cshtml" />
+    <Content Include="Views\HomePage\Register.cshtml" />
+    <Content Include="Views\HomePage\Cart.cshtml" />
+    <Content Include="Views\HomePage\Collection.cshtml" />
+    <Content Include="Views\HomePage\NikeShoes.cshtml" />
+    <Content Include="Views\HomePage\AdidasShoes.cshtml" />
+    <Content Include="Views\HomePage\VansShoes.cshtml" />
+    <Content Include="Views\HomePage\ConverseShoes.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59006</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59006/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,256 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Share/Client_LayoutPage.cshtml";
+    List<Product> pro4 = ViewBag.product4;
+    List<BrandShoes> brandName = ViewBag.brandN;
+    List<Categorieshop> cate = ViewBag.catelist;
+}
+@using BanGiay.Models;
+
+<!-- Hero Section Begin -->
+<section class="hero-section">
+    <div class="hero-items owl-carousel">
+        <div class="single-hero-items set-bg" data-setbg=@Url.Content("~/Content/img/Page/anh23.jpg")>
+        </div>
+        <div class="single-hero-items set-bg" data-setbg="@Url.Content("~/Content/img/Page/anh16.jpg")">
+        </div>
+        <div class="single-hero-items set-bg" data-setbg="@Url.Content("~/Content/img/Page/anh14.jpg")">
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
+<!-- Banner Section Begin -->
+<div class="banner-section spad">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="single-banner">
+                    <img src="~/Content/img/banner-1.jpg" alt="">
+                    <div class="inner-text">
+                        <h4>@cate[1].nameC</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="single-banner">
+                    <img src="~/Content/img/banner-2.jpg" alt="">
+                    <div class="inner-text">
+                        <h4>@cate[2].nameC</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="single-banner">
+                    <img src="~/Content/img/banner-3.jpg" alt="">
+                    <div class="inner-text">
+                        <h4>@cate[0].nameC</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Section End -->
+<!-- Women Banner Section Begin -->
+<section class="women-banner spad">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 tanot">
+                <div class="product-large set-bg" data-setbg="@Url.Content("~/Content/img/Page/anh9.jpg")">
+                    @*<h2>Women’s</h2>
+                    <a href="#">Discover More</a>*@
+                </div>
+            </div>
+            <div class="col-lg-8 offset-lg-1">
+                <div class="filter-control">
+                    <ul>
+                        <li class="active">@brandName[3].nameB </li>
+                        @for (int i = 1; i < 3; i++)
+                        {
+                            <li> @brandName[i].nameB </li>
+
+                        }
+                    </ul>
+                </div>
+                <div class="product-slider owl-carousel">
+                    @for (int i = 0; i < 4; i++)
+                    {
+                        <form action="Product" method="get">
+                            <div class="product-item">
+                                <div class="pi-pic">
+                                    <img src="~/Content/img/AllProduct/@pro4[i].img1" alt="">
+                                    <div class="icon">
+                                        <i class="icon_heart_alt"></i>
+                                    </div>
+                                    <ul>
+                                        <li hidden><input name="id" type="text" hidden value="@pro4[i].IDProduct" /></li>
+                                        <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                        <li class="quick-view"> <input type="submit" value=" Quick View" /></li>
+                                        <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="pi-text">
+                                    <div class="catagory-name">@pro4[i].IDBrand</div>
+                                    <a href="#">
+                                        <h5>@pro4[i].nameP</h5>
+                                    </a>
+                                    <div class="product-price">
+                                        $@pro4[i].realCost
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                      
+                    }
+                   
+                </div>
+            </div>
+        </div>
+</section>
+<!-- Women Banner Section End -->
+<!-- Instagram Section Begin -->
+<div class="instagram-photo">
+    <div class="insta-item set-bg" data-setbg="@Url.Content("~/Content/img/Page/anh10.jpg")">
+        <div class="inside-text">
+            <i class="ti-instagram"></i>
+            <h5><a href="#">Hakhan_Collection</a></h5>
+        </div>
+    </div>
+    <div class="insta-item set-bg" data-setbg="@Url.Content("~/Content/img/Page/anh13.jpg")">
+        <div class="inside-text">
+            <i class="ti-instagram"></i>
+            <h5><a href="#">Hakhan_Collection</a></h5>
+        </div>
+    </div>
+    <div class="insta-item set-bg" data-setbg="@Url.Content("~/Content/img/Page/anh15.jpg")">
+        <div class="inside-text">
+            <i class="ti-instagram"></i>
+            <h5><a href="#">Hakhan_Collection</a></h5>
+        </div>
+    </div>
+    <div class="insta-item set-bg" data-setbg="@Url.Content("~/Content/img/Page/anh25.jpg")">
+        <div class="inside-text">
+            <i class="ti-instagram"></i>
+            <h5><a href="#">Hakhan_Collection</a></h5>
+        </div>
+    </div>
+    <div class="insta-item set-bg" data-setbg="@Url.Content("~/Content/img/Page/anh22.jpg")">
+        <div class="inside-text">
+            <i class="ti-instagram"></i>
+            <h5><a href="#">Hakhan_Collection</a></h5>
+        </div>
+    </div>
+    <div class="insta-item set-bg" data-setbg="@Url.Content("~/Content/img/Page/anh6.jpg")">
+        <div class="inside-text">
+            <i class="ti-instagram"></i>
+            <h5><a href="#">Hakhan_Collection</a></h5>
+        </div>
+    </div>
+</div>
+
+<section class="latest-blog spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h2>FeedBack</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="single-latest-blog">
+                    <img src="~/Content/img/latest-1.jpg" alt="">
+                    <div class="latest-text">
+                        <div class="tag-list">
+                            <div class="tag-item">
+                                <i class="fa fa-calendar-o"></i>
+                                May 4,2019
+                            </div>
+                        </div>
+                        <a href="#">
+                            <h4>The Best Street Style From London Fashion Week</h4>
+                        </a>
+                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-latest-blog">
+                    <img src="~/Content/img/latest-2.jpg" alt="">
+                    <div class="latest-text">
+                        <div class="tag-list">
+                            <div class="tag-item">
+                                <i class="fa fa-calendar-o"></i>
+                                May 4,2019
+                            </div>
+                            
+                        </div>
+                        <a href="#">
+                            <h4>Vogue's Ultimate Guide To Autumn/Winter 2019 Shoes</h4>
+                        </a>
+                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-latest-blog">
+                    <img src="~/Content/img/latest-3.jpg" alt="">
+                    <div class="latest-text">
+                        <div class="tag-list">
+                            <div class="tag-item">
+                                <i class="fa fa-calendar-o"></i>
+                                May 4,2019
+                            </div>
+                            
+                        </div>
+                        <a href="#">
+                            <h4>How To Brighten Your Wardrobe With A Dash Of Lime</h4>
+                        </a>
+                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="benefit-items">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="single-benefit">
+                        <div class="sb-icon">
+                            <img src="~/Content/img/icon-1.png" alt="">
+                        </div>
+                        <div class="sb-text">
+                            <h6>Free Shipping</h6>
+                            <p>For all order over 399.000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-benefit">
+                        <div class="sb-icon">
+                            <img src="~/Content/img/icon-2.png" alt="">
+                        </div>
+                        <div class="sb-text">
+                            <h6>Delivery On Time</h6>
+                            <p>If good have prolems</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-benefit">
+                        <div class="sb-icon">
+                            <img src="~/Content/img/icon-1.png" alt="">
+                        </div>
+                        <div class="sb-text">
+                            <h6>Secure Payment</h6>
+                            <p>100% secure payment</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Partner Logo Section End -->
