@@ -1,0 +1,89 @@
+﻿@{
+    List<colName> nameC = ViewBag.column;
+    List<Product> prd = ViewBag.product;
+}
+@using BanGiay.Models;
+
+
+
+<div class="table-responsive table-responsive-data2" id="contain_product" style="overflow-x:auto;">
+    <table class="table table-data2">
+        <thead>
+            <tr>
+                <th>
+                    <label class="au-checkbox">
+                        <input type="checkbox">
+                        <span class="au-checkmark"></span>
+                    </label>
+
+                </th>
+                @foreach (colName item in nameC)
+                {
+                    <th>@item.COLUMN_NAME</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Product item in prd)
+            {
+            <tr class="tr-shadow">
+                <td>
+                    <label class="au-checkbox">
+                        <input type="checkbox">
+                        <span class="au-checkmark"></span>
+                    </label>
+                </td>
+
+                <td>@item.nameP</td>
+                <td>@item.size</td>
+                <td>@item.IDBrand</td>
+                <td><textarea disabled> @item.descriptionP</textarea></td>
+                <td><textarea disabled> @item.shortDescription </textarea></td>
+                <td>@item.color</td>
+                <td>@item.cost</td>
+                <td><img src="~/Content/img/AllProduct/@item.img1"></td>
+                <td><img src="~/Content/img/AllProduct/@item.img2"></td>
+                <td class="id_productField">@item.IDProduct</td>
+                <td>@item.reviewStar</td>
+                <td>@item.realCost</td>
+                <td>@item.sale</td>
+                <td>@item.productBuy</td>
+                <td>@item.size1</td>
+                <td>@item.size2</td>
+                <td>@item.size3</td>
+                <td>@item.size4</td>
+                <td>@item.size5</td>
+
+                <td></td>
+
+                <td>
+                    <form @*action="@Url.Action("EditProduct", "Admin", new { IDProduct = "10000" })" method="get"*@>
+                        <div class="table-data-feature">
+                            @*<button class="item"  data-toggle="tooltip" data-placement="top" title="Send">
+            <i class="zmdi zmdi-mail-send"></i>
+        </button>*@
+                            <a href="~/Admin/Admin/EditProduct/@item.IDProduct">
+                                <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                    <i class="zmdi zmdi-edit"></i>
+                                </button>
+                            </a>
+                            <a href="~/Admin/Admin/DeleteProduct/@item.IDProduct" onclick="return confirm('Bạn chắc chắn muốn xóa?')">
+                                <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                    <i class="zmdi zmdi-delete"></i>
+                                </button>
+                            </a>
+                            <a href="~/Admin/Admin/ViewProduct/@item.IDProduct">
+                                <button class="item" data-toggle="tooltip" data-placement="top" title="More">
+                                    <i class="zmdi zmdi-more"></i>
+                                </button>
+                            </a>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+                <tr class="spacer"></tr>
+            }
+        </tbody>
+    </table>
+</div>
+

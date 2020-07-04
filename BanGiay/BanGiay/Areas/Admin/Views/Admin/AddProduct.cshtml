@@ -1,0 +1,111 @@
+﻿
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    List<BrandSho> nameB = ViewBag.nameB;
+}
+@using BanGiay.Models
+@model Product
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddProduct</title>
+</head>
+<body>
+    <form action="@Url.Action("AddProductME","Admin")" method="post" role="form" enctype="multipart/form-data">
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">Thêm mới </h3>
+
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">Tên Sản Phẩm</label>
+                            <input type="text" name="name" class="form-control" id="name" placeholder="">
+                        </div>
+                        <!-- /.form-group -->
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Giá</label>
+                            <input type="text" class="form-control" name="price" id="price" placeholder="">
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">IDProduct</label>
+                            <input type="number" class="form-control" name="ID" id="amount" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">size</label>
+                            <input type="number" class="form-control" name="size" id="amount" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">IDBrand</label>
+                            <select class="form-control" name="IDBrand">
+                                @foreach (var i in nameB)
+                                {
+                                    <option value="@i.IDBrand" >@i.nameB</option>
+                                }
+                            </select>
+                        </div>
+
+
+                        <!-- /.form-group -->
+
+                    </div>
+                    <!-- /.col -->
+
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="form-group">
+                            <label for="exampleInputFile">Chọn ảnh</label>
+                            <input type="file" id="photo" name="photo" onchange="show_img(this)">
+                            <img id="displayImgUpload" />
+
+                        </div>
+
+                        <div class="form-group">
+                            <label>Mô tả</label>
+                            <textarea name="description" id="description" class="form-control" rows="3" placeholder="Thêm mô tả ..."></textarea>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+
+        </div>
+        <div class="box-footer">
+            <input type="submit" class="btn btn-primary" value="Thêm" />
+        </div>
+    </form>
+    <script>
+        function show_img(input) {
+            if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+            $('#displayImgUpload')
+            .attr('src', e.target.result)
+            .width(150)
+            .height(200);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+</body>
+
+</html>

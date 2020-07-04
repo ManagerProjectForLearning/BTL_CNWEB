@@ -9,6 +9,12 @@ namespace BanGiay.Models
     [Table("ElecBillShop")]
     public partial class ElecBillShop
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ElecBillShop()
+        {
+            Products = new HashSet<Product>();
+        }
+
         [Key]
         [StringLength(16)]
         public string IDBill { get; set; }
@@ -22,5 +28,11 @@ namespace BanGiay.Models
         public int? pInBill { get; set; }
 
         public double? totalMoney { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Product> Products { get; set; }
+
+        private List<DeltailCartShop> listP = new List<DeltailCartShop>();
+        public List<DeltailCartShop> ListP { get; set; }
     }
 }

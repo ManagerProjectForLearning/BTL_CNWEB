@@ -15,14 +15,10 @@ namespace BanGiay
             routes.MapRoute(
                name: "Chi Tiết Sản Phẩm",
                url: "{controller}/{action}/{id}",
-               defaults: new { controller = "HomePage", action = "Product", id = UrlParameter.Optional }
+               defaults: new { controller = "HomePage", action = "Index", id = UrlParameter.Optional }
            );
 
-            routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "HomePage", action = "Index", id = UrlParameter.Optional }
-            );
+            
         }
     }
 }

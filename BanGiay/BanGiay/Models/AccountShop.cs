@@ -9,6 +9,13 @@ namespace BanGiay.Models
     [Table("AccountShop")]
     public partial class AccountShop
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public AccountShop()
+        {
+            AccountCartShops = new HashSet<AccountCartShop>();
+            PhanQuyenShops = new HashSet<PhanQuyenShop>();
+        }
+
         [Key]
         [StringLength(25)]
         public string username { get; set; }
@@ -32,5 +39,16 @@ namespace BanGiay.Models
         public DateTime? dateCreate { get; set; }
 
         public int? productBuy { get; set; }
+
+        [StringLength(16)]
+        public string PhanQuyenS { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AccountCartShop> AccountCartShops { get; set; }
+
+        public virtual PhanQuyenShop PhanQuyenShop { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PhanQuyenShop> PhanQuyenShops { get; set; }
     }
 }

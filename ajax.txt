@@ -1,0 +1,30 @@
+ $('.edit_ajax').click(function (e) { // bắt sự kiên 1 nút click
+        e.preventDefault(); // ngăn chặn bị lặp click
+        var curRow = $(this).closest('tr').find('.id_productField').text();
+        var dataModel = $('#mymodal'); // lấy ra vùng cần load lại
+        $.ajax({
+            url: '/Admin/Admin/EditProduct',
+            method: 'get',
+            data: { IDProduct: curRow },
+            dataType: 'html',
+            success: function (result) {
+                dataModel.empty().append(result);
+                dataModel.modal().show();
+            }
+        });
+    });
+    $('.del_ajax').click(function (e) { // bắt sự kiên 1 nút click
+        e.preventDefault(); // ngăn chặn bị lặp click
+        var curRow = $(this).closest('tr').find('.id_productField').text();
+        var dataModel = $('#mymodal'); // lấy ra vùng cần load lại
+        $.ajax({
+            url: '/Admin/Admin/EditProduct',
+            method: 'get',
+            data: { IDProduct: curRow },
+            dataType: 'html',
+            success: function (result) {
+                dataModel.empty().append(result);
+                dataModel.modal().show();
+            }
+        });
+    });

@@ -31,7 +31,7 @@ namespace BanGiay.Models
         [StringLength(100)]
         public string twLink { get; set; }
 
-        [StringLength(1000)]
+        [StringLength(2000)]
         public string introduce { get; set; }
     }
 }

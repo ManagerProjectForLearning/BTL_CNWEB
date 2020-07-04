@@ -1,0 +1,170 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    List<colName> nameC = ViewBag.column;
+    List<Product> prd = ViewBag.product;
+
+}
+@using BanGiay.Models;
+<div class="row">
+    <div class="col-md-12">
+        <!-- DATA TABLE -->
+        <h3 class="title-5 m-b-35">data table</h3>
+        <div class="table-data__tool">
+            <div class="table-data__tool-left">
+                <div class="rs-select2--light rs-select2--md">
+                    <select class="js-select2" name="property">
+                        <option selected="selected">All Properties</option>
+                        <option value="">Option 1</option>
+                        <option value="">Option 2</option>
+                    </select>
+                    <div class="dropDownSelect2"></div>
+                </div>
+                <div class="rs-select2--light rs-select2--sm">
+                    <select class="js-select2" name="time">
+                        <option selected="selected">Today</option>
+                        <option value="">3 Days</option>
+                        <option value="">1 Week</option>
+                    </select>
+                    <div class="dropDownSelect2"></div>
+                </div>
+                <button class="au-btn-filter">
+                    <i class="zmdi zmdi-filter-list"></i>filters
+                </button>
+            </div>
+            <div class="table-data__tool-right">
+                <a href="~/Admin/Admin/AddProduct">
+                    <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                        <i class="zmdi zmdi-plus"></i>add item
+                    </button>
+                </a>
+                @*<div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
+                        <select class="js-select2" name="type">
+                            <option selected="selected">Export</option>
+                            <option value="">Option 1</option>
+                            <option value="">Option 2</option>
+                        </select>
+                        <div class="dropDownSelect2"></div>
+                    </div>*@
+            </div>
+        </div>
+        <nav>
+            <ul class="pagination">
+                @for (int i = 1; i <= ViewBag.countPage; i++)
+                {
+                    <li class="page-item"><span class="page-link btn_click" value="@i">@i</span></li>
+                }
+
+
+            </ul>
+        </nav>
+
+
+
+        <div class="table-responsive table-responsive-data2" id="contain_product" style="overflow-x:auto;">
+            <table class="table table-data2">
+                <thead>
+                    <tr>
+                        <th>
+                            <label class="au-checkbox">
+                                <input type="checkbox">
+                                <span class="au-checkmark"></span>
+                            </label>
+
+                        </th>
+                        @foreach (colName item in nameC)
+                        {
+                            <th>@item.COLUMN_NAME</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Product item in prd)
+                    {
+                        <tr class="tr-shadow">
+                            <td>
+                                <label class="au-checkbox">
+                                    <input type="checkbox">
+                                    <span class="au-checkmark"></span>
+                                </label>
+                            </td>
+
+                            <td>@item.nameP</td>
+                            <td>@item.size</td>
+                            <td>@item.IDBrand</td>
+                            <td><textarea disabled> @item.descriptionP</textarea></td>
+                            <td><textarea disabled> @item.shortDescription </textarea></td>
+                            <td>@item.color</td>
+                            <td>@item.cost</td>
+                            <td><img src="~/Content/img/AllProduct/@item.img1"></td>
+                            <td><img src="~/Content/img/AllProduct/@item.img2"></td>
+                            <td class="id_productField">@item.IDProduct</td>
+                            <td>@item.reviewStar</td>
+                            <td>@item.realCost</td>
+                            <td>@item.sale</td>
+                            <td>@item.productBuy</td>
+                            <td>@item.size1</td>
+                            <td>@item.size2</td>
+                            <td>@item.size3</td>
+                            <td>@item.size4</td>
+                            <td>@item.size5</td>
+
+                            <td></td>
+
+                            <td>
+                                <form @*action="@Url.Action("EditProduct", "Admin", new { IDProduct = "10000" })" method="get"*@>
+                                    <div class="table-data-feature">
+                                        @*<button class="item"  data-toggle="tooltip" data-placement="top" title="Send">
+                                                <i class="zmdi zmdi-mail-send"></i>
+                                            </button>*@
+                                        <a href="~/Admin/Admin/EditProduct/@item.IDProduct">
+                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                <i class="zmdi zmdi-edit"></i>
+                                            </button>
+                                        </a>
+                                        <a href="~/Admin/Admin/DeleteProduct/@item.IDProduct" onclick="return confirm('Bạn chắc chắn muốn xóa?')">
+                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                <i class="zmdi zmdi-delete"></i>
+                                            </button>
+                                        </a>
+                                        <a href="~/Admin/Admin/ViewProduct/@item.IDProduct">
+                                            <button class="item" data-toggle="tooltip" data-placement="top" title="More">
+                                                <i class="zmdi zmdi-more"></i>
+                                            </button>
+                                        </a>
+                                    </div>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr class="spacer"></tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <!-- END DATA TABLE -->
+    </div>
+</div>
+
+<div id="mymodal">
+</div>
+
+<script src="~/Content/js/jquery-3.3.1.min.js"></script>
+<script>
+    $('.btn_click').click(function (e) { // bắt sự kiên 1 nút click
+        e.preventDefault(); // ngăn chặn bị lặp click
+        var numPage = $(this).text(); // lây ra số trang vừa bấm
+        var dataModel = $('#contain_product'); // lấy ra vùng cần load lại
+        $.ajax({
+            url: '/Admin/Admin/chagePage',
+            method: 'Post',
+            data: { pageS: numPage },
+            dataType: 'html',
+            success: function (result) {
+                dataModel.empty().append(result);
+            }
+        });
+    });
+
+</script>
+

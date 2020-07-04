@@ -1,9 +1,9 @@
-﻿@using BanGiay.Models;
+﻿
 <!DOCTYPE html>
 @{
-    ShopShoesDB dbcontext = new ShopShoesDB();
-    MyWebShop temp = dbcontext.MyWebShops.First();
-    
+    BanGiay.Models.MyWebShop temp = ViewBag.inforWeb;
+    List<BanGiay.Models.BrandSho> brand = ViewBag.brandN;
+
 }
 <html>
 <head>
@@ -62,7 +62,14 @@
                     </div>
                 </div>
                 <div class="ht-right">
-                    <a href="@Url.Action("Login", "HomePage")" class="login-panel"><i class="fa fa-user"></i>Login</a>
+                    @if (BanGiay.Controllers.LoginController.account == null)
+                    {
+                        <a href="@Url.Action("Login", "Login")" class="login-panel"><i class="fa fa-user"></i>Login</a>
+                    }
+                    else
+                    {
+                        <a href="#" class="login-panel"><i class="fa fa-user"></i>@BanGiay.Controllers.LoginController.account.username</a>
+                    }
                     <div class="lan-selector">
 
                     </div>
@@ -85,15 +92,26 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-7 col-md-7">
-                        <div class="advanced-search">
-                            <button type="button" class="category-btn">All Categories</button>
-                            <div class="input-group">
-                                <input type="text" placeholder="What do you need?">
-                                <button type="button"><i class="ti-search"></i></button>
+                    <form action="TimKiemSP" method="post">
+                        <div class="col-lg-7 col-md-7">
+                            <div class="advanced-search">
+                                
+
+                                <select class="depart-hover" name="Brand">
+                                    <option selected> Brand Fashion</option>
+                                    @foreach (BanGiay.Models.BrandSho item in brand)
+                                    {
+                                        <option name="@item.IDBrand" value="@item.IDBrand">@item.nameB Shoes</option>
+                                    }
+                                </select>
+
+                                <div class="input-group">
+                                    <input type="text" name="timkiem" placeholder="What do you need?">
+                                    <button type="submit"><i class="ti-search"></i></button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                     <div class="col-lg-3 text-right col-md-3">
                         <ul class="nav-right">
                             <li class="heart-icon">
@@ -233,12 +251,12 @@
                 <div class="col-lg-3">
                     <div class="footer-left">
                         <div class="footer-logo">
-                            <a href="#"><img src="~/Content/img/Logo/THShoes_logo.jpg" alt=""></a>
+                            <a href="@Url.Action("Index","HomePage")"><img src="~/Content/img/Logo/THShoes_logo.jpg" alt=""></a>
                         </div>
                         <ul>
-                            <li>Address: 236 Hoàng Quốc Việt, Bắc Từ Liêm, Hà Nội</li>
-                            <li>Phone: +84.999.9999</li>
-                            <li>Email: THShop99@gmail.com</li>
+                            <li>Address: @temp.addressC</li>
+                            <li>Phone: @temp.phone</li>
+                            <li>Email: @temp.email</li>
                         </ul>
                         <div class="footer-social">
                             <a href="#"><i class="fa fa-facebook"></i></a>

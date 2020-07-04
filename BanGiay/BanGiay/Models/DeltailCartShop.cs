@@ -20,5 +20,22 @@ namespace BanGiay.Models
         public string IDProduct { get; set; }
 
         public DateTime? timeAdd { get; set; }
+
+        public int? soluong { get; set; }
+
+        [StringLength(100)]
+        public string img1 { get; set; }
+
+        public double? realCost { get; set; }
+
+        [Column("checked")]
+        public bool? _checked { get; set; }
+
+        [StringLength(200)]
+        public string nameP { get; set; }
+
+        public virtual AccountCartShop AccountCartShop { get; set; }
+
+        public virtual Product Product { get; set; }
     }
 }

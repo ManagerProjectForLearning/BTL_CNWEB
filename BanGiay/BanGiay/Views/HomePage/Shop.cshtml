@@ -3,11 +3,12 @@
     ViewBag.Title = "Shop";
     Layout = "~/Views/Share/Client_LayoutPage.cshtml";
     List<Product> pro4 = ViewBag.product4;
-    List<BrandShoes> brandName = ViewBag.brandN;
-    List<Categorieshop> cate = ViewBag.catelist;
+    List<BrandSho> brandName = ViewBag.brandN;
+    List<Categorieshop> cate = ViewBag.cateList;
 
 }
 @using BanGiay.Models;
+@model List<Product>
 
 <!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
@@ -151,41 +152,82 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-list">
-                    <div class="row">
-                        @for (int i = 0; i < 9; i++)
-                        {
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="product-item">
-                                <div class="pi-pic">
-                                    <img src="~/Content/img/AllProduct/@pro4[i].img1" alt="">
-                                    <div class="sale pp-sale">Sale</div>
-                                    <div class="icon">
-                                        <i class="icon_heart_alt"></i>
+                @if (Model == null)
+                {
+                    <div class="product-list">
+                        <div class="row">
+                            @for (int i = 0; i < 9; i++)
+                            {
+                                <div class="col-lg-4 col-sm-6">
+                                    <div class="product-item">
+                                        <div class="pi-pic">
+                                            <img src="~/Content/img/AllProduct/@pro4[i].img1" alt="">
+                                            <div class="sale pp-sale">Sale</div>
+                                            <div class="icon">
+                                                <i class="icon_heart_alt"></i>
+                                            </div>
+                                            <ul>
+                                                <li hidden><input name="idP" type="text" hidden value="@pro4[i].IDProduct" /></li>
+                                                <li class="w-icon active"><a href="@Url.Action("AddToCart", "Cart", new { id= pro4[i].IDProduct ,returnURL=Request.RawUrl} )"><i class="icon_bag_alt"></i></a></li>
+                                                <li class="quick-view"> <a href="@Url.Action("Product", "HomePage",new {id= pro4[i].IDProduct })"> + Quick View </a> </li>
+                                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="pi-text">
+                                            <div class="catagory-name">@pro4[i].IDBrand</div>
+                                            <a href="#">
+                                                <h5>@pro4[i].nameP</h5>
+                                            </a>
+                                            <div class="product-price">
+                                                $@pro4[i].realCost
+                                                <span>@pro4[i].cost</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <ul>
-                                       <li hidden><input name="idP" type="text" hidden value="@pro4[i].IDProduct" /></li>
-                                        <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                        <li class="quick-view"> <a href="@Url.Action("Product", "HomePage")"> + Quick View </a> </li>
-                                        <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                    </ul>
                                 </div>
-                                <div class="pi-text">
-                                    <div class="catagory-name">@pro4[i].IDBrand</div>
-                                    <a href="#">
-                                        <h5>@pro4[i].nameP</h5>
-                                    </a>
-                                    <div class="product-price">
-                                        $@pro4[i].realCost
-                                        <span>@pro4[i].cost</span>
-                                    </div>
-                                </div>
-                            </div>
+                            }
                         </div>
-                        }
                     </div>
-                </div>
-                
+                }
+                else
+                {
+                    <div class="product-list">
+                        <div class="row">
+                            @for (int i = 0; i < 9; i++)
+                            {
+                                <div class="col-lg-4 col-sm-6">
+                                    <div class="product-item">
+                                        <div class="pi-pic">
+                                            <img src="~/Content/img/AllProduct/@Model[i].img1" alt="">
+                                            <div class="sale pp-sale">Sale</div>
+                                            <div class="icon">
+                                                <i class="icon_heart_alt"></i>
+                                            </div>
+                                            <ul>
+                                                <li hidden><input name="idP" type="text" hidden value="@Model[i].IDProduct" /></li>
+                                                <li class="w-icon active"><a href="@Url.Action("AddToCart", "Cart", new { id= pro4[i].IDProduct ,returnURL=Request.RawUrl} )"><i class="icon_bag_alt"></i></a></li>
+                                                <li class="quick-view"> <a href="@Url.Action("Product", "HomePage",new {id= pro4[i].IDProduct })"> + Quick View </a> </li>
+                                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="pi-text">
+                                            <div class="catagory-name">@Model[i].IDBrand</div>
+                                            <a href="#">
+                                                <h5>@Model[i].nameP</h5>
+                                            </a>
+                                            <div class="product-price">
+                                                $@Model[i].realCost
+                                                <span>@Model[i].cost</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+
+
             </div>
         </div>
     </div>

@@ -1,0 +1,67 @@
+﻿@using BanGiay.Models;
+@{
+    ViewBag.Title = "AccountView";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    List<AccountShop> allAcc = ViewBag.allAcc;
+}
+
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <!-- USER DATA-->
+                    <div class="user-data m-b-30">
+                        <h3 class="title-3 m-b-30">
+                            <i class="zmdi zmdi-account-calendar"></i>user data
+                        </h3>
+                        <div class="table-responsive table-data">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>Role</td>
+                                        <td></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (AccountShop item in allAcc)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <div class="table-data__info">
+                                                    <span class="username_fied" hidden>@item.username</span>
+                                                    <h6>@item.fullName</h6>
+                                                    <span>
+                                                        <a href="#">@item.email</a>
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="rs-select2--trans rs-select2--sm">
+                                                    <select class="js-select2 select2-hidden-accessible chose_Role" name="property" tabindex="-1" aria-hidden="true">
+                                                        <option selected="selected" disabled>@item.PhanQuyenS</option>
+                                                        @foreach (PhanQuyenShop quyen in ViewBag.role)
+                                                        {
+                                                            <option value="">@quyen.nameQ</option>
+                                                        }
+                                                    </select>
+                                                    <div class="dropDownSelect2"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="user-data__footer">
+                            <button class="au-btn au-btn-load">load more</button>
+                        </div>
+                    </div>
+                    <!-- END USER DATA-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

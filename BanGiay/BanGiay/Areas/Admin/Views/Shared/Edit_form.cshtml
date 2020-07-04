@@ -1,0 +1,74 @@
+﻿@model BanGiay.Models.Product
+    <form action="@Url.Action("AddProductME","Admin")" method="post" role="form" enctype="multipart/form-data">
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">Thêm mới </h3>
+
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">Tên Sản Phẩm</label>
+                            <input type="text" name="name" class="form-control" id="name" placeholder="@Model.nameP">
+                        </div>
+                        <!-- /.form-group -->
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Giá</label>
+                            <input type="text" class="form-control" name="price" id="price" placeholder="@Model.cost">
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">IDProduct</label>
+                            <input type="number" class="form-control" name="ID" id="amount" placeholder="@Model.IDProduct">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">size</label>
+                            <input type="number" class="form-control" name="size" id="amount" placeholder="@Model.size">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">IDBrand</label>
+                            <input type="number" class="form-control" name="IDBrand" id="amount" placeholder="@Model.IDBrand">
+                        </div>
+
+
+                        <!-- /.form-group -->
+
+                    </div>
+                    <!-- /.col -->
+
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="form-group">
+                            <label for="exampleInputFile">Chọn ảnh</label>
+                            <input type="file" id="photo" name="photo">
+                            <p class="help-block">Chọn ảnh của sản phẩm</p>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label>Mô tả</label>
+                            <textarea name="description" id="description" class="form-control" rows="3" placeholder="@Model.descriptionP"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+
+        </div>
+        <div class="box-footer">
+            <input type="submit" class="btn btn-primary" value="Thêm" />
+        </div>
+    </form>
+</div>

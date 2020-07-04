@@ -9,6 +9,13 @@ namespace BanGiay.Models
     [Table("Product")]
     public partial class Product
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Product()
+        {
+            DeltailCartShops = new HashSet<DeltailCartShop>();
+            ElecBillShops = new HashSet<ElecBillShop>();
+        }
+
         [StringLength(200)]
         public string nameP { get; set; }
 
@@ -18,15 +25,16 @@ namespace BanGiay.Models
         [StringLength(16)]
         public string IDBrand { get; set; }
 
-        [StringLength(1000)]
+        [StringLength(2000)]
         public string descriptionP { get; set; }
 
-        [StringLength(200)]
+        [StringLength(2000)]
         public string shortDescription { get; set; }
 
         [StringLength(50)]
         public string color { get; set; }
 
+        [StringLength(10)]
         public string cost { get; set; }
 
         [StringLength(100)]
@@ -46,5 +54,23 @@ namespace BanGiay.Models
         public int? sale { get; set; }
 
         public int? productBuy { get; set; }
+
+        public int? size1 { get; set; }
+
+        public int? size2 { get; set; }
+
+        public int? size3 { get; set; }
+
+        public int? size4 { get; set; }
+
+        public int? size5 { get; set; }
+
+        public virtual BrandSho BrandSho { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DeltailCartShop> DeltailCartShops { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ElecBillShop> ElecBillShops { get; set; }
     }
 }

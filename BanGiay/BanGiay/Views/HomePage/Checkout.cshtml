@@ -4,6 +4,7 @@
     Layout = "~/Views/Share/Client_LayoutPage.cshtml";
 }
 @using BanGiay.Models;
+@model AccountCartShop
 <!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -87,9 +88,11 @@
                         <div class="order-total">
                             <ul class="order-table">
                                 <li>Product <span>Total</span></li>
-                                <li class="fw-normal">Combination x 1 <span>$60.00</span></li>
-                                <li class="fw-normal">Combination x 1 <span>$60.00</span></li>
-                                <li class="fw-normal">Combination x 1 <span>$120.00</span></li>
+                                @foreach (DeltailCartShop it in Model.ListP)
+                                {
+                                    <li class="fw-normal">@it.nameP x @it.soluong <span>$@(it.realCost*it.soluong)</span></li>
+                                }
+
                                 <li class="fw-normal">Subtotal <span>$240.00</span></li>
                                 <li class="total-price">Total <span>$240.00</span></li>
                             </ul>
@@ -110,7 +113,7 @@
                                 </div>
                             </div>
                             <div class="order-btn">
-                                <button type="submit" class="site-btn place-btn">Place Order</button>
+                                <a href="@Url.Action("Payment","HomePage")">Payment</a>
                             </div>
                         </div>
                     </div>
